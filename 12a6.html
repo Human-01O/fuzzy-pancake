@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kỉ niệm</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #020617;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: #0f172a;
+    padding: 20px;
+    text-align: center;
+}
+
+header h2 {
+    color: #38bdf8;
+    font-family: cursive;
+    font-size: 28px;
+}
+
+/* GALLERY */
+.gallery {
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* IMAGE + VIDEO */
+.gallery img,
+.gallery video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover,
+.gallery video:hover {
+    transform: scale(1.05);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+
+    /* căn giữa ảnh */
+    align-items: center;
+    justify-content: center;
+}
+
+/* ảnh fullscreen */
+.lightbox img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+}
+
+/* Nút đóng */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h2>Trường THPT số 1 Nguyễn Huệ 
+        (Kỉ niệm của A6-k31-NH)
+    </h2>
+</header>
+
+<section class="gallery">
+    <!-- 3 ảnh -->
+    <img src="h1.jpg" onclick="openImg(this.src)">
+    <img src="h2.jpg" onclick="openImg(this.src)">
+    <img src="h3.jpg" onclick="openImg(this.src)">
+    <img src="h4.jpg" onclick="openImg(this.src)">
+    <img src="h5.jpg" onclick="openImg(this.src)">
+    <img src="h6.jpg" onclick="openImg(this.src)">
+    <img src="h7.jpg" onclick="openImg(this.src)">
+    <img src="h8.jpg" onclick="openImg(this.src)">
+    <img src="h9.jpg" onclick="openImg(this.src)">
+    <img src="h10.jpg" onclick="openImg(this.src)">
+    <img src="h11.jpg" onclick="openImg(this.src)">
+ 
+
+
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeImg()">
+    <span class="close" onclick="closeImg()">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openImg(src) {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+
+    img.src = src;
+    lightbox.style.display = "flex";
+}
+
+function closeImg() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
